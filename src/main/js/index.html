@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy"  content="connect-src * 'unsafe-inline';">
+    <style>
+		body { margin: 0; }
+	    table    { border: 2px solid black; }
+        input    { width: 200px; }
+        select   { width: 200px; }
+        textarea { width: 380px; border: 2px solid black; }
+        #btnConnect    { width: 100px; }
+        #btnDisconnect { width: 100px; }
+        #btnSend       { width: 100px; }
+        #lefPanel {
+          height: 100%; /* Full-height: remove this if you want "auto" height */
+          width: 400px; /* Set the width of the sidebar */
+          position: fixed;
+          z-index: 1; /* Stay on top */
+          top: 0; /* Stay at the top */
+          left: 0;
+          background-color: #aaffff;
+          overflow-x: hidden; /* Disable horizontal scroll */
+          padding-top: 20px;
+        }
+        #rightPanel {
+        display:block;
+            margin-left: 400px; /* Same as the width of the sidebar */
+            padding: 0px 0px;
+            height: 100%;
+        }
+    </style>
+    <script src="three.js"></script>
+</head>
+<body>
+    <h1>Showme Probe Prototype</h1>
+    <div id="lefPanel">
+        <!-- WebSocket Connection Parameters Table -->
+        <table>
+            <!-- <tr>
+                <td width="200px">WS Protocol</td>
+                <td>
+                    <select id="protocol">
+                        <option value="ws" selected="selected">ws</option>
+                        <option value="wss">wss</option>
+                    </select>
+                </td>
+            </tr> -->
+            <tr>
+                <td>WS Hostname</td>
+                <td><input type="text" id="hostname" value="192.168.18.132"/></td>
+            </tr>
+            <tr>
+                <td>WS Port</td>
+                <td><input type="text" id="port" value="6340"/></td>
+            </tr>
+            <!--<tr>
+                <td>WS Endpoint</td>
+                <td><input type="text" id="endpoint"/></td>
+            </tr>-->
+            <tr>
+                <td></td>
+                <td>
+                    <input id="btnConnect"    type="button" value="Connect"    onclick="onConnectClick()">&nbsp;&nbsp;
+                    <input id="btnDisconnect" type="button" value="Disconnect" onclick="onDisconnectClick()" disabled="disabled">
+                </td>
+            </tr>
+        </table><br/>
+        <!-- Send Message Table -->
+        <table>
+            <tr>
+                <td width="200px">Message</td>
+                <td><input type="text" id="message"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input id="btnSend" type="button" value="Send Message" disabled="disabled" onclick="onSendClick()">
+                </td>
+            </tr>
+        </table><br/>
+        <textarea id="incomingMsgOutput" rows="10" cols="20" disabled="disabled"></textarea>
+    </div>
+    <div id="rightPanel">
+        <div id="mycanvas" width="400" height="400">
+        </div>
+    </div>
+    <script src="probe3d.js"></script>
+    <script src="wsclient.js"></script>
+</body>
+</html>
