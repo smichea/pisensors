@@ -16,3 +16,7 @@ then copy the pisensors.jar and /libs directory to some place in your Pi then ex
 ```
 java -jar pisensors.jar
 ```
+
+it will launch a websocket server on port 6340
+
+a javascript client that you can open in a browser is [here](https://github.com/smichea/pisensors/tree/master/src/main/js)
