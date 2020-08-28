@@ -8,13 +8,13 @@
 
 //Biases (use your own value)
 //    Gyro
-#define GYRO_BIAS_X -411
-#define GYRO_BIAS_Y 127
-#define GYRO_BIAS_Z 350
+#define GYRO_BIAS_X -402
+#define GYRO_BIAS_Y 126
+#define GYRO_BIAS_Z 348
 //     Acc
-#define ACC_BIAS_X 7808
-#define ACC_BIAS_Y -10867
-#define ACC_BIAS_Z -14109
+#define ACC_BIAS_X 8590
+#define ACC_BIAS_Y -11007
+#define ACC_BIAS_Z -14153
 
 
 #include <iostream>
@@ -68,7 +68,7 @@
 class MPU6050 {
 	private:
 		
-		float phiAcc, thetaAcc, psiAss ;
+		float rollAcc, pitchAcc, yawAcc ;
 		
 
 		int MPU6050_addr;
@@ -76,14 +76,30 @@ class MPU6050 {
 
 		float dt; //Loop time
 
+		struct timespec tStart,tEnd; //time structure
+
+		float initRoll = 0 ;
+		float initPitch = 0 ;
+		float initYaw = 0 ;
+		float gyroXmain, gyroYmain, gyroZmain, accXmain, accYmain, accZmain ;
+		float rollAccMain, pitchAccMain, yawAccMain ;
+		float rollGyroMain, pitchGyroMain, yawGyroMain ; 
+		float q1Gyro, q2Gyro, q3Gyro ,q4Gyro ;
+		float q1Acc, q2Acc, q3Acc, q4Acc ;
+		float dq1Gyro, dq2Gyro, dq3Gyro ,dq4Gyro ;
+
 
 	public:
 		MPU6050(int8_t addr);
 		void getBias(int totalMeasurement, float *accBias_X, float *accBias_Y, float *accBias_Z, float *gyroBias_X, float *gyroBias_Y, float *gyroBias_Z);
-		void getAccelRaw(float *accX, float *accY, float *accZ);
+		void getAccRaw(float *accX, float *accY, float *accZ);
 		void getGyroRaw(float *gyroX, float *gyroY, float *gyroZ);
-		void getAccel(float *accX, float *accY, float *accZ);
+		void getAcc(float *accX, float *accY, float *accZ);
 		void getGyro(float *gyroX, float *gyroY, float *gyroZ);
-		void getAnglesFromAcc(float *accX, float *accY, float *accZ, float *phiAcc, float *thetaAcc, float *psiAcc) ;
-		
+		void getAnglesFromAcc(float *accX, float *accY, float *accZ, float *rollAcc, float *pitchAcc, float *yawAcc) ;
+		void EulerAngle2Qauternion(float *roll, float *pitch, float *yaw, float *Q1, float *Q2, float *Q3, float *Q4) ;
+		void Quaternion2EulerAngle(float *roll, float *pitch, float *yaw, float *Q1, float *Q2, float *Q3, float *Q4) ;
+		void dQ(float *rateX, float *rateY, float *rateZ, float *Q1, float *Q2, float *Q3, float *Q4, float *dQ1, float *dQ2, float *dQ3, float *dQ4) ;
+		void getAnglesFromGyro(float *roll, float *pitch, float *yaw) ;
+		void gyroIntegrating() ;
 };
