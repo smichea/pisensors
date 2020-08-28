@@ -22,7 +22,7 @@ it will launch a websocket server on port 6340
 a javascript client that you can open in a browser is [here](https://github.com/smichea/pisensors/tree/master/src/main/js)
 
 ## 
-On 'data_fusion' directory execute following commands to compile C++ codes:
+On 'data_fusion' directory, execute following commands to compile C++ codes:
 
 ```
 g++ -pthread  -o ReadRawData ReadRawData.cpp ./MPU6050_library/MPU6050.cpp ./i2c_library/smbus.c
