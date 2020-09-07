@@ -47,20 +47,20 @@
 #undef GYRO_RANGE
 
 
-#if GYRO_RANGE == 1
+#if ACC_RANGE == 1
 	#define ACC_SENS 8192.0
 	#define ACC_CONFIG 0b00001000
-#elif GYRO_RANGE == 2
+#elif ACC_RANGE == 2
 	#define ACC_SENS 4096.0
 	#define ACC_CONFIG 0b00010000
-#elif GYRO_RANGE == 3
+#elif ACC_RANGE == 3
 	#define ACC_SENS 2048.0
 	#define ACC_CONFIG 0b00011000
 #else 
 	#define ACC_SENS 16384.0
 	#define ACC_CONFIG 0b00000000
 #endif
-#undef GYRO_RANGE
+#undef ACC_RANGE
 
 
 
