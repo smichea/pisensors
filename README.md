@@ -8,7 +8,8 @@ This software currently handle
 ## installation
 on a raspbian, install java 8 (we need to wait for Pi4J v2 to upgrade)
 ```
-sudo apt get openjdk-8-jdk
+sudo apt update
+sudo apt install openjdk-8-jdk
 ```
 
 On a development pc or directly in the Pi, clone this repo and compile using maven.
