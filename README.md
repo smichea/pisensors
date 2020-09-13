@@ -6,11 +6,7 @@ This software currently handle
 * GY-511 gyroscope
 
 ## installation
-on a raspbian, install java 8 (we need to wait for Pi4J v2 to upgrade)
-```
-sudo apt update
-sudo apt install openjdk-8-jdk
-```
+on a raspbian, [install java 8](https://linuxize.com/post/install-java-on-debian-10/) (we need to wait for Pi4J v2 to upgrade) 
 
 On a development pc or directly in the Pi, clone this repo and compile using maven.
 then copy the pisensors.jar and /libs directory to some place in your Pi then execute
