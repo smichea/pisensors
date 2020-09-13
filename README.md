@@ -8,6 +8,15 @@ This software currently handle
 ## installation
 on a raspbian, [install java 8](https://linuxize.com/post/install-java-on-debian-10/) (we need to wait for Pi4J v2 to upgrade) 
 
+```
+sudo apt update
+sudo apt install apt-transport-https ca-certificates wget dirmngr gnupg software-properties-common
+wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | sudo apt-key add -
+sudo add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+sudo apt update
+sudo apt install adoptopenjdk-8-hotspot
+```
+
 On a development pc or directly in the Pi, clone this repo and compile using maven.
 then copy the pisensors.jar and /libs directory to some place in your Pi then execute
 ```
