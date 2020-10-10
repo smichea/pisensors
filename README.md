@@ -5,7 +5,11 @@ is a java program that *plan* to aggregate data from different sensors and send 
 This software currently handle
 * GY-511 gyroscope
 
-## installation
+## harware installation
+
+![image](https://user-images.githubusercontent.com/16659140/95651679-9b751c80-0b1e-11eb-9ac0-be16d9dfb82e.png)
+
+## software installation
 on a raspbian, [install java 8](https://linuxize.com/post/install-java-on-debian-10/) (we need to wait for Pi4J v2 to upgrade) 
 
 ```
