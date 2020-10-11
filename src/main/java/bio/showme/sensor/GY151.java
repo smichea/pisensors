@@ -1,14 +1,12 @@
 package bio.showme.sensor;
 
-import com.pi4j.io.i2c.I2CBus;
-import com.pi4j.io.i2c.I2CDevice;
-import com.pi4j.io.i2c.I2CFactory;
+import io.dvlopt.linux.i2c.* ;
 
 import java.io.IOException;
 public class GY151 extends Sensor {
 
     private static I2CBus bus = null;
-    private static I2CDevice gy151 = null;
+    private static I2CBus gy151 = null; //this is what the bus becomes when a slave is selected, it correspond to pi4j device
 
     private static final int Device_Address=0x68;
     private static final int PWR_MGMT_1    =0x6B;
@@ -74,8 +72,9 @@ public class GY151 extends Sensor {
     void init(String config) throws Exception {
         sensorId=151;
         registerNames=  new String[]{"Acc_x","Acc_y","Acc_z","Gy_x","Gy_y","Gy_z"};
-        bus = I2CFactory.getInstance(I2CBus.BUS_1);
-        gy151 = bus.getDevice(Device_Address);
+        bus = new I2CBus( 1) ;//I2CFactory.getInstance(I2CBus.BUS_1);
+        bus.selectSlave( Device_Address ) ;//bus.getDevice(Device_Address);
+        gy151 = bus;//bus.getDevice(Device_Address);
         //writeConfigRegister("Waking up device", PWR_MGMT_1, (byte)0x01);
         //writeConfigRegister("Configuring sample rate", SMPLRT_DIV, (byte)0x07);
         //writeConfigRegister("Setting global config (digital low pass filter)",CONFIG, (byte)0);
@@ -113,18 +112,24 @@ public class GY151 extends Sensor {
     }
 
     private static void writeRegister(int register, byte data) throws IOException {
-        gy151.write(register, data);
+        I2CBuffer buff = new I2CBuffer(2).set(0,(byte)register).set(1,data);
+        gy151.write(buff);
     }
 
     public static byte readRegister(int register) throws IOException {
-        int data = gy151.read(register);
+        I2CBuffer buff = new I2CBuffer(1).set(0,(byte)register);
+        gy151.write(buff,1);
+        gy151.read(buff);
+        int data = buff.get(0);
         return (byte) data;
     }
 
     public static int readIntRegister(int register) throws IOException {
-        byte h = (byte)gy151.read(register);
+        I2CBuffer buff = new I2CBuffer(2);
+        gy151.read(buff);
+        byte h = (byte)buff.get(0);
         //System.out.print("\n h="+h);
-        byte l= (byte)gy151.read(register+1);
+        byte l= (byte)buff.get(1);
         //System.out.print("\n l="+l);
         int res = h*256+l;
         //System.out.print(" h<<8+l="+res);

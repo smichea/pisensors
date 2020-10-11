@@ -1,0 +1,5 @@
+bio\showme\server\SensorsServer.class
+bio\showme\sensor\Sensor.class
+bio\showme\sensor\GY151.class
+bio\showme\SensorManager.class
+bio\showme\MeasureListener.class
