@@ -22,6 +22,7 @@ sudo add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
 sudo apt update
 sudo apt install adoptopenjdk-8-hotspot
 ```
+user raspconfig to activate i2c
 
 ### Ubuntu 20
 Download [Ubuntu 20 for raspberry pi 4 64bits](https://ubuntu.com/download/raspberry-pi)
@@ -42,6 +43,26 @@ sudo apt install openjdk-8-jdk-headless
 Install maven
 ```
 sudo apt install maven
+```
+
+Install i2c-tools
+```
+sudo apt install i2c-tools
+```
+
+in `/boot/firmware/` add the following line to `usrcfg.txt`
+```
+dtparam=i2c_arm=on
+```
+
+Add the following line to /etc/modules-load.d/modules.conf
+```
+i2c-dev
+```
+
+reboot then check `/dev/i2c-1` exist
+```
+sudo i2cdetect 1
 ```
 
 ## Build the project
