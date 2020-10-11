@@ -24,7 +24,7 @@ sudo apt install adoptopenjdk-8-hotspot
 ```
 user raspconfig to activate i2c
 
-### Ubuntu 20 (this wont work, need first to use pi4j v2)
+### Ubuntu 20
 Download [Ubuntu 20 for raspberry pi 4 64bits](https://ubuntu.com/download/raspberry-pi)
 and install it on an SD card with [rasperby imager](https://www.raspberrypi.org/downloads/) or other tool like [etcher](https://www.balena.io/etcher/).
 
@@ -74,8 +74,11 @@ curl -sSL https://pi4j.com/install | sudo bash
 
 Go to `/home/` and clone this repo
 ```
+sudo chmod a+w /home/
 cd /home/
-sudo git clone https://github.com/smichea/pisensors.git
+git clone https://github.com/smichea/pisensors.git
+cd pisensors
+mvn install
 ```
 Alternatively you can do the compilation on a PC then copy the pisensors.jar and /libs directory to some place in your Pi.
 
