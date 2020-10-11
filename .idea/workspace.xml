@@ -25,7 +25,6 @@
     <list default="true" id="9e0caef0-e94d-4e24-a60f-86016bf603dd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bio/showme/sensor/GY151.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bio/showme/sensor/GY151.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/js/probe3d.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/js/probe3d.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +142,8 @@
     <MESSAGE value="added mouse" />
     <MESSAGE value="usel linux-i2c lib instead of pi4j" />
     <MESSAGE value="fix Euler2Quaternions" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix Euler2Quaternions" />
+    <MESSAGE value="add logs" />
+    <option name="LAST_COMMIT_MESSAGE" value="add logs" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1600775283326">
@@ -190,10 +190,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1600778633344" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602387895119">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602389188137">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602387895119" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602389188137" />
   </component>
   <component name="masterDetails">
     <states>

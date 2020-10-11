@@ -127,9 +127,9 @@ public class GY151 extends Sensor {
     public static int readIntRegister(int register) throws IOException {
         I2CBuffer buff = new I2CBuffer(2);
         gy151.read(buff);
-        byte h = (byte)buff.get(0);
+        byte l = (byte)buff.get(0);
         //System.out.print("\n h="+h);
-        byte l= (byte)buff.get(1);
+        byte h= (byte)buff.get(1);
         //System.out.print("\n l="+l);
         int res = h*256+l;
         //System.out.print(" h<<8+l="+res);
