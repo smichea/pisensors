@@ -24,7 +24,7 @@ sudo apt install adoptopenjdk-8-hotspot
 ```
 user raspconfig to activate i2c
 
-### Ubuntu 20
+### Ubuntu 20 (this wont work, need first to use pi4j v2)
 Download [Ubuntu 20 for raspberry pi 4 64bits](https://ubuntu.com/download/raspberry-pi)
 and install it on an SD card with [rasperby imager](https://www.raspberrypi.org/downloads/) or other tool like [etcher](https://www.balena.io/etcher/).
 
