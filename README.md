@@ -86,7 +86,7 @@ Alternatively you can do the compilation on a PC then copy the pisensors.jar and
 ## Run project
 got to `/home/pisensors/target` or to the place you copied `pisensors.jar` then execute it
 ```
-java -jar pisensors.jar
+sudo java -jar pisensors.jar
 ```
 
 it will launch a websocket server on port 6340
