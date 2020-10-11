@@ -1,5 +1,9 @@
-bio\showme\server\SensorsServer.class
-bio\showme\sensor\Sensor.class
-bio\showme\sensor\GY151.class
-bio\showme\SensorManager.class
-bio\showme\MeasureListener.class
+bio/showme/sensor/FindUsbInterface.class
+bio/showme/MeasureListener.class
+bio/showme/SensorManager.class
+bio/showme/server/SensorsServer.class
+bio/showme/sensor/Mouse.class
+bio/showme/sensor/GY151.class
+bio/showme/sensor/Sensor.class
+bio/showme/sensor/ShowTopology.class
+bio/showme/sensor/Mouse$HidMouseRunnable.class

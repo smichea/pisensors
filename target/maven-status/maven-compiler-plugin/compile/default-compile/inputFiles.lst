@@ -1,5 +1,8 @@
-E:\Documents\developpement\showme\pisensors\src\main\java\bio\showme\MeasureListener.java
-E:\Documents\developpement\showme\pisensors\src\main\java\bio\showme\sensor\GY151.java
-E:\Documents\developpement\showme\pisensors\src\main\java\bio\showme\sensor\Sensor.java
-E:\Documents\developpement\showme\pisensors\src\main\java\bio\showme\SensorManager.java
-E:\Documents\developpement\showme\pisensors\src\main\java\bio\showme\server\SensorsServer.java
+/home/pisensors/src/main/java/bio/showme/sensor/FindUsbInterface.java
+/home/pisensors/src/main/java/bio/showme/sensor/Mouse.java
+/home/pisensors/src/main/java/bio/showme/MeasureListener.java
+/home/pisensors/src/main/java/bio/showme/sensor/ShowTopology.java
+/home/pisensors/src/main/java/bio/showme/sensor/Sensor.java
+/home/pisensors/src/main/java/bio/showme/SensorManager.java
+/home/pisensors/src/main/java/bio/showme/server/SensorsServer.java
+/home/pisensors/src/main/java/bio/showme/sensor/GY151.java

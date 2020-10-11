@@ -81,7 +81,7 @@ public class GY151 extends Sensor {
         //writeConfigRegister("Configuring gyroscope", GYRO_CONFIG, (byte)24);
         //writeConfigRegister("Configuring accelerometer", ACCEL_CONFIG, (byte)0);
         //writeConfigRegister("Configuring interrupts", INT_ENABLE, (byte)1);
-        writeConfigRegister("Waking up device", PWR_MGMT_1, (byte)0);
+         writeConfigRegister("Waking up device", PWR_MGMT_1, (byte)0);
         writeConfigRegister("Setting global config (digital low pass filter)",CONFIG, (byte)0b00000011);
         writeConfigRegister("Configuring sample rate divider (to 200Hz)", SMPLRT_DIV, (byte)0b00000100);
         writeConfigRegister("Configuring gyroscope", GYRO_CONFIG, GYRO_CONFIG_VAL);
@@ -125,11 +125,13 @@ public class GY151 extends Sensor {
     }
 
     public static int readIntRegister(int register) throws IOException {
+        I2CBuffer b= new I2CBuffer(1).set(0,(byte)register);
+	gy151.write(b,1);
         I2CBuffer buff = new I2CBuffer(2);
         gy151.read(buff);
-        byte l = (byte)buff.get(0);
+        byte h = (byte)buff.get(0);
         //System.out.print("\n h="+h);
-        byte h= (byte)buff.get(1);
+        byte l= (byte)buff.get(1);
         //System.out.print("\n l="+l);
         int res = h*256+l;
         //System.out.print(" h<<8+l="+res);
@@ -305,7 +307,7 @@ public class GY151 extends Sensor {
                 for(int j=0;j<GYRO_REGISTERS.length;j++){
                     rawValues[j]=readIntRegister(GYRO_REGISTERS[j]);
                 }
-                System.out.println(values[0]+","+values[1]+","+values[2]+","+rawValues[0]+","+rawValues[1]+","+rawValues[2]);
+                //System.out.println(values[0]+","+values[1]+","+values[2]+","+rawValues[0]+","+rawValues[1]+","+rawValues[2]);
                 //adjust with bias... not sure this is meaningful for acceleration
                 //for(int j=0;j<ACC_REGISTERS.length;j++) {
                 //    values[j] = (int) Math.round((rawValues[j] - gyro_delta[j]) * 1000.0 / ACC_SENS_VAL) / 1000;
