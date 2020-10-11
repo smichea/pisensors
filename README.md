@@ -65,6 +65,11 @@ reboot then check `/dev/i2c-1` exist
 sudo i2cdetect 1
 ```
 
+install p4j
+```
+curl -sSL https://pi4j.com/install | sudo bash
+```
+
 ## Build the project
 
 Go to `/home/` and clone this repo
