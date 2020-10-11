@@ -1,6 +1,7 @@
 package bio.showme;
 
 import bio.showme.sensor.GY151;
+import bio.showme.sensor.Mouse;
 import bio.showme.sensor.Sensor;
 import bio.showme.server.SensorsServer;
 
@@ -40,6 +41,11 @@ public class SensorManager {
 
     public static void main(String[] args){
         SensorManager sensorManager=new SensorManager();
+        try {
+            Mouse mouse = new Mouse("");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         try {
             Sensor gyro = new GY151("");
             gyro.calibrate("");
