@@ -29,7 +29,7 @@ camera.position.z = 5;
 renderer.render( scene, camera );
 function renderProbe(x,y,z,gx,gy,gz){
    console.log("x="+x+",y="+y+",z="+z+",gx="+gx+",gy="+gy+",gz="+gz);
-   probe.lookAt ( x, y, z);
+   probe.lookAt ( gx, gy, gz);
    requestAnimationFrame( animate );
 }
 function animate(){

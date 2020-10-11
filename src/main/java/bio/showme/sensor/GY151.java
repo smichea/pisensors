@@ -305,6 +305,7 @@ public class GY151 extends Sensor {
                 for(int j=0;j<GYRO_REGISTERS.length;j++){
                     rawValues[j]=readIntRegister(GYRO_REGISTERS[j]);
                 }
+                System.out.println(values[0]+","+values[1]+","+values[2]+","+rawValues[0]+","+rawValues[1]+","+rawValues[2]);
                 //adjust with bias... not sure this is meaningful for acceleration
                 //for(int j=0;j<ACC_REGISTERS.length;j++) {
                 //    values[j] = (int) Math.round((rawValues[j] - gyro_delta[j]) * 1000.0 / ACC_SENS_VAL) / 1000;
