@@ -184,8 +184,8 @@ public class GY151 extends Sensor {
         double[] result =  new double[4];
         result[0] = Math.sin(rollRad/2)*Math.cos(pitchRad/2)*Math.cos(yawRad/2) - Math.cos(rollRad/2)*Math.sin(pitchRad/2)*Math.sin(yawRad/2) ;
         result[1] = Math.cos(rollRad/2)*Math.sin(pitchRad/2)*Math.cos(yawRad/2) + Math.sin(rollRad/2)*Math.cos(pitchRad/2)*Math.sin(yawRad/2) ;
-        result[3] = Math.cos(rollRad/2)*Math.cos(pitchRad/2)*Math.sin(yawRad/2) - Math.sin(rollRad/2)*Math.sin(pitchRad/2)*Math.cos(yawRad/2) ;
-	    result[4] = Math.cos(rollRad/2)*Math.cos(pitchRad/2)*Math.cos(yawRad/2) + Math.sin(rollRad/2)*Math.sin(pitchRad/2)*Math.sin(yawRad/2) ;
+        result[2] = Math.cos(rollRad/2)*Math.cos(pitchRad/2)*Math.sin(yawRad/2) - Math.sin(rollRad/2)*Math.sin(pitchRad/2)*Math.cos(yawRad/2) ;
+	    result[3] = Math.cos(rollRad/2)*Math.cos(pitchRad/2)*Math.cos(yawRad/2) + Math.sin(rollRad/2)*Math.sin(pitchRad/2)*Math.sin(yawRad/2) ;
         return result;
     }
 
