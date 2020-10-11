@@ -127,11 +127,14 @@ public class GY151 extends Sensor {
     public static int readIntRegister(int register) throws IOException {
         I2CBuffer b= new I2CBuffer(1).set(0,(byte)register);
 	gy151.write(b,1);
-        I2CBuffer buff = new I2CBuffer(2);
+        I2CBuffer buff = new I2CBuffer(1);
         gy151.read(buff);
         byte h = (byte)buff.get(0);
         //System.out.print("\n h="+h);
-        byte l= (byte)buff.get(1);
+        b.set(0,(byte)(register+1));
+	gy151.write(b,1);
+        gy151.read(buff);
+        byte l= (byte)buff.get(0);
         //System.out.print("\n l="+l);
         int res = h*256+l;
         //System.out.print(" h<<8+l="+res);
@@ -177,7 +180,7 @@ public class GY151 extends Sensor {
     public double[] getAcc(){
         double[] result=getRawAcc();
         for(int j=0;j<ACC_REGISTERS.length;j++){
-            result[j] = Math.round((result[j] - acc_initiale[j]) * 1000.0 / ACC_SENS_VAL) / 1000.0;
+            result[j] = Math.round((result[j] - acc_initiale[j]) * 1000.0 / ACC_SENS_VAL);
         }
         return result;
     }
@@ -299,9 +302,9 @@ public class GY151 extends Sensor {
     int[] rawValues = new int[GYRO_REGISTERS.length];
     void measure(int[] values){
         try {
-                //read raw acc
+                //read raw acc and remove calibrated values
                 for(int j=0;j<ACC_REGISTERS.length;j++){
-                    values[j]=readIntRegister(ACC_REGISTERS[j]);
+                    values[j]=(int) Math.round((readIntRegister(ACC_REGISTERS[j])-acc_initiale[j]));
                 }
                 //read raw gyro
                 for(int j=0;j<GYRO_REGISTERS.length;j++){
@@ -316,6 +319,7 @@ public class GY151 extends Sensor {
                 for(int j=0;j<3;j++) {
                     gyro[j] = Math.round((rawValues[j] - gyro_delta[j]) * 1000.0 / GYRO_SENS_VAL) / 1000.0;
                 }
+                System.out.println(values[0]+","+values[1]+","+values[2]+" "+gyro[0]+"="+rawValues[0]+"-"+gyro_delta[0]+","+gyro[1]+","+gyro[2]);
                 double[] quaternionIncrement = quaternionIncrement(gyro[0],gyro[1],gyro[2],quaternionAngles);
                 long timeStamp = System.currentTimeMillis();
                 integrate(quaternionAngles,quaternionIncrement,(timeStamp-lastTimestamp)/1000.0);

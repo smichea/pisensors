@@ -4,7 +4,7 @@
 MPU6050 mySensor(0x68);
 
 
-int totalMeasurement = 10000 ; 
+int totalMeasurement = 100 ; 
 
 int main() {
 
